@@ -1,5 +1,6 @@
 # Step 1: Build JAR file
 FROM maven:3.8.6-openjdk-17 AS builder
+
 WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
