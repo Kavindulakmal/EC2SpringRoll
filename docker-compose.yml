@@ -4,6 +4,7 @@ services:
   app:
     image: wicklak/docker-mysql-springboot-demo:latest
     container_name: docker-mysql-springboot-demo-app
+    restart: always
     ports:
       - "8081:8081"
     environment:

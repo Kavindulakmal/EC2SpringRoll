@@ -1,14 +1,12 @@
-#Use a Base Image with JDK 17 runtime
-FROM openjdk:17-jdk-slim
-
-#Set the Working Directory
+# Step 1: Build JAR file
+FROM maven:3.8.6-openjdk-17 AS builder
 WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
 
-#Copy the application JAR file into the Container
-COPY target/springboot-dock.jar springboot-dock.jar
-
-#Expose the Required port
+# Step 2: Create the final image
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+COPY --from=builder /app/target/springboot-dock.jar springboot-dock.jar
 EXPOSE 8081
-
-#Run the application
 ENTRYPOINT ["java", "-jar", "springboot-dock.jar"]
