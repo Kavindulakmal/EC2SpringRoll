@@ -8,7 +8,7 @@ WORKDIR /app
 COPY target/springboot-dock.jar springboot-dock.jar
 
 #Expose the Required port
-EXPOSE 8080
+EXPOSE 8081
 
 #Run the application
 ENTRYPOINT ["java", "-jar", "springboot-dock.jar"]

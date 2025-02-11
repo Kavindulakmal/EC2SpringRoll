@@ -5,7 +5,7 @@ services:
     image: wicklak/docker-mysql-springboot-demo:latest
     container_name: docker-mysql-springboot-demo-app
     ports:
-      - "8080:8080"
+      - "8081:8081"
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/lambda
       SPRING_DATASOURCE_USERNAME: root
